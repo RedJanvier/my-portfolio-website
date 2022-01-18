@@ -87,7 +87,7 @@ nav ul li a:hover {
     text-decoration: none;
     border: 2px solid transparent;
     font-weight: bold;
-    padding: 10px 25px;
+    padding: 8px 25px;
     border-radius: 30px;
     transition: transform .4s;
 
@@ -155,7 +155,9 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   padding-bottom: 50px;
+  padding-top: 5px;
   width:10vw;
+  margin-left: 1.5rem;
 }
 .blogger-image{
    width:50px;
@@ -185,6 +187,8 @@ button:hover {
   font-family: Raleway;
   font-weight:700;
   color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+
 }
 .blog-full-content{
   padding:40px;
@@ -212,7 +216,7 @@ button:hover {
 .comments-title{
   display:flex;
   justify-content: space-between;
-  padding:20px 60px 20px 60px;
+  padding:20px 60px 20px 105px;
 }
 .subscribe{
   border:2px solid var(--textSecondColor);
@@ -240,7 +244,7 @@ button:hover {
 .comment-btn{
   position:absolute;
   top:180px;
-  left:645px;
+  left:599px;
   right:0;
   padding:10px;
   text-align:center;
@@ -266,6 +270,7 @@ button:hover {
   display: flex;
   align-items: center;
   width:100%;
+  padding-left:35px;
 }
 .comment-holder{
   border:1px solid rgb(196, 192, 192);
@@ -273,7 +278,7 @@ button:hover {
   min-height:120px;
   border-radius: 5px;
   margin:10px 50px 10px 30px;
-  width:46vw;
+  width:45.5vw;
 }
 .guest-comment{
   display: flex;

@@ -11,59 +11,68 @@
     <title>Login</title>
 </head>
 <body>
+        <nav>
+          <div class="max-width">
+            <div class="logo"><a href="#blog">Stri<span>Ker</span></a></div>
+            <ul>
+                <li><a href="/index.html">Portfolio</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+            </ul>
+          <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+            <a href="/login.html" class="btn"> Login/Signup </a> 
+           </div>
+        
+        </nav>
+    <!-- //////////////////////////////////////////// -->
 <div class="container" id="container">
     <div class="form-container sign-up-container">
         <form action="">
-            <a class="close" href="/index.html"><i class="far fa-times-circle"></i></a>
-            <h2>Create Account</h2>
+            <h2>SIGN UP</h2>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook"></i></a>
                 <a href="#" class="social"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social"><i class="fab fa-linkedin"></i></a>
             </div>
             <span>or use your email for registration</span>
-            <input type="text" name="name" placeholder="Name">
-            <input type="email" name="email" placeholder="Email">
-            <input type="password" name="password" placeholder="Password">
+            <input type="text" name="name" placeholder="Name" id="name2">
+            <p class="error-message"></p>
+            <input type="email" name="email" placeholder="Email" id="email2">
+            <p class="error-email"></p>
+            <input type="password" name="password" placeholder="Password" id="password2">
+            <p class="error-password"></p>
             <button class="abana">Sign Up</button>
-            <a href="#" id="signIn">Sign in if you have account already!</a>
+            <a href="#" id="signIn">Already have an account? Log In</a>
         </form>
     </div>
 
 <div class="form-container sign-in-container">
-        <form action="./index.html">
-            <a class="close" href="/index.html"><i class="far fa-times-circle"></i></a>
+        <form> 
             <h2>LOG IN</h2>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook"></i></a>
                 <a href="#" class="social"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social"><i class="fab fa-linkedin"></i></a>
             </div>
-            <span>or use your Account</span>
-            <input type="email" name="email" placeholder="Email">
-            <input type="password" name="password" placeholder="Password">            
-            <button class="abana"><a class="abana" href="/admin.html">Log In</a></button>
+            <span>or use your Account</span><br>
+           
+          <input autofocus type='email' placeholder="Enter your email" name="email" class="input input-error" id="email">
+          <span id="error11"></span><br>
+        
+          <input type='password'  placeholder="Enter your password" class="input input-error" name="password" id="password">
+          <span id="error12"></span><br>
+        
+            <button class="abana login-btn"> Log In</button>
             <a href="#" id="signUp">Click here to create Account !</a>
 
         </form>
     </div>
-<!-- <div class="overlay-container">
-    <div class="overlay">
-        <div class="overlay-panel overlay-left">
-            <h2>Welcome Back!</h2>
-            <p>To keep connected with us please login with your personal info</p>
-            <button class="ghost" id="signIn">Sign In</button>
-        </div>
 
-        <div class="overlay-panel overlay-right">
-            <h2>Hello, Friend!</h2>
-            <p>Enter your details and start your journey with us!</p>
-            <button class="ghost" id="signUp">Sign Up</button>
-        </div>
-        
-    </div>
-</div> -->
 </div>
 <script src="main.js"></script>
+<script src="./js/loginformValidation.js"> </script>
 </body>
 </html>
