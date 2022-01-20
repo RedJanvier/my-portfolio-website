@@ -37,106 +37,7 @@
         </div>
         <div class="blog-second-content">
           <div class="blog-list">
-            <a href="./article.html">
-               <div class="blog-card">
-              <div class="blog-image">
-                <img src="./img/8.jpg" alt="importance of reading" width="400" height="350"/>
-              </div>
-              <div class="blog-title-date">
-                <h3 class="title-blog">Information Technology</h3>
-                <p class="date">Dec, 20,2021</p>
-                <div class="blog-line"></div>
-              </div>
-              <div class="blog-description">
-                <p class="blog-content-description">The same way we feed our bellies, should be the same way that we should feed our brain. But how can we feed our brains? one way that issgnificant it is through reading....</p>
-              </div>
-               <div class="likes-comment-view">
-                <div class="likes">
-                  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                  <p class="likes-data">100 likes</p>
-                </div>
-                <div class="comments">
-                  <i class="fa fa-comments" aria-hidden="true"></i>
-                  <p class="comments-data">50 comments</p>
-                </div>
-              </div>
-            </div>
-            </a>
-           <a href="./article.html">
-             <div class="blog-card">
-              <div class="blog-image">
-               <img src="./img/9.jpg" alt="docker compose picture" width="400" height="350"/>
-              </div>
-              <div class="blog-title-date">
-                <h3 class="title-blog">Technology</h3>
-                <p class="date">Jan, 01,2022</p>
-                <div class="blog-line"></div>
-              </div>
-              <div class="blog-description">
-                <p class="blog-content-description">The same way we feed our bellies, should be the same way that we should feed our brain. But how can we feed our brains? one way that issgnificant it is through reading....</p>
-              </div>
-              <div class="likes-comment-view">
-                <div class="likes">
-                  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                  <p class="likes-data">100 likes</p>
-                </div>
-                <div class="comments">
-                  <i class="fa fa-comments" aria-hidden="true"></i>
-                  <p class="comments-data">50 comments</p>
-                </div>
-              </div>
-            </div>
-           </a>
-            <a href="./article.html">
-              <div class="blog-card">
-              <div class="blog-image">
-                <img src="./img/10.jpg" alt="blog picture" width="400" height="350"/>
-              </div>
-              <div class="blog-title-date">
-                <h3 class="title-blog">Artificial Intelligence</h3>
-                <p class="date">Jan, 05,2022</p>
-                <div class="blog-line"></div>
-              </div>
-              <div class="blog-description">
-                <p class="blog-content-description">The same way we feed our bellies, should be the same way that we should feed our brain. But how can we feed our brains? one way that issgnificant it is through reading....</p>
-              </div>
-               <div class="likes-comment-view">
-                <div class="likes">
-                  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                  <p class="likes-data">100 likes</p>
-                </div>
-                <div class="comments">
-                  <i class="fa fa-comments" aria-hidden="true"></i>
-                  <p class="comments-data">50 comments</p>
-                </div>
-              </div>
-            </div>
-            </a>
-
-            <!-- <a href="./article.html">
-              <div class="blog-card">
-              <div class="blog-image"></div>
-              <div class="blog-title-date">
-                <h3 class="title-blog">The Importance of reading</h3>
-                <p class="date">12th,march,2021</p>
-                <div class="blog-line"></div>
-              </div>
-              <div class="blog-description">
-                <p class="blog-content-description">The same way we feed our bellies, should be the same way that we should feed our brain. But how can we feed our brains? one way that issgnificant it is through reading....</p>
-              </div>
-               <div class="likes-comment-view">
-                <div class="likes">
-                  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                  <p class="likes-data">43 likes</p>
-                </div>
-                <div class="comments">
-                  <i class="fa fa-comments" aria-hidden="true"></i>
-                  <p class="comments-data">45 comments</p>
-                </div>
-              </div>
-            </div>
-            </a> -->
-            
+            No blog exist!
           </div>
         </div>
       </div>
@@ -156,6 +57,45 @@
         </div>
         <p class="end">Copyright By Samuel MUPAGASI</p>
     </footer>
-    
+    <script>
+      const RetrieveArticles = localStorage.getItem("blogList");
+      const getData = JSON.parse(RetrieveArticles);
+      let blogCardElement = document.querySelector(".blog-list");
+      getData?.forEach((element, i) => {
+        let body = element.description.slice(0, 120) + "....";
+        const html = `
+           <a href="./article.html?id=${element.id}">
+               <div class="blog-card">
+              <div class="blog-image">
+                <img src="${element.imageUrl}" alt="importance of reading" width="400" height="350"/>
+              </div>
+              <div class="blog-title-date">
+                <h3 class="title-blog">${element.title}</h3>
+                <p class="date">${element.createdAt}</p>
+                <div class="blog-line"></div>
+              </div>
+              <div class="blog-description">
+                <p class="blog-content-description">${element.description.slice(0, 120)}....</p>
+              </div>
+               <div class="likes-comment-view">
+                <div class="likes">
+                  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                  <p class="likes-data">${element.like} likes</p>
+                </div>
+                <div class="comments">
+                  <i class="fa fa-comments" aria-hidden="true"></i>
+                  <p class="comments-data">${element.comments.length} comments</p>
+                </div>
+              </div>
+            </div>
+            </a>`;
+
+        if (i === 0) blogCardElement.innerHTML = html;
+        else blogCardElement.innerHTML += html;
+      });
+      if (getData.length === 0) {
+        blogCardElement.textContent = 'No blog exist!';
+      }
+    </script>
 </body>
 </html>

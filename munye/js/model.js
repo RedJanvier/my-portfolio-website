@@ -78,6 +78,7 @@ const handleCreateArticle = (e) => {
       like: 0,
       comments: [],
       numberOfComments: 0,
+      createdAt: new Date().toISOString().split('T')[0],
     };
     const getBlogs = JSON.parse(localStorage.getItem("blogList"));
     if (getBlogs?.length >= 1) {

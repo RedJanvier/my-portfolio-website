@@ -110,34 +110,39 @@ function update(id) {
   });
 }
 
-const getData = JSON.parse(localStorage.getItem("blogList"));
+const getData = JSON.parse(RetrieveArticles);
 console.log(getData);
 let blogCardElement = document.querySelector(".section-content");
-getData?.forEach((element) => {
+getData?.forEach((element, i) => {
   let body = element.description.slice(0, 120) + "....";
+  const html = `
+    <div class="article-card">
+      <a href="./article.html?id=${element.id}" data-id=${element.id}>
+        <div class="article-owner-image">
+          <img src="${element.imageUrl}" alt="importance of reading" width="400" height="350"/>
+        </div>
+        <div class="article-title-date">
+          <h3 class="title-articles">${element.title}</h3>
+          <p class="date-article">march, 12,2021</p>
+          <div class="article-line"></div>
+        </div>
+        <div class="article-description">
+          <p class="blog-content-description">${body}</p>
+        </div>
+      </a>
+      <div class="edit-delete">
+        <div class="edit-skill-article" id="edit-skill">
+          <i onclick="update(${element.id})" class="fas fa-pen update"></i>
+        </div>
+        <div class="delete-blog">
+          <i onclick="deleteArticle(${element.id})" class="fas fa-trash-alt delete"></i>
+        </div>
+      </div>
+    </div>`
 
-  blogCardElement.innerHTML += `
-  <div class="article-card">
-              <a href="../article.html?id=${element.id}" data-id=${element.id}>
-              <div class="article-owner-image">
-                <img src="${element.imageUrl}" alt="importance of reading" width="400" height="350"/>
-              </div>
-              <div class="article-title-date">
-                <h3 class="title-articles">${element.title}</h3>
-                <p class="date-article">march, 12,2021</p>
-                <div class="article-line"></div>
-              </div>
-              <div class="article-description">
-                <p class="blog-content-description">${body}</p>
-              </div>
-            </a>
-               <div class="edit-delete">
-                <div class="edit-skill-article" id="edit-skill">
-                  <i onclick="update(${element.id})" class="fas fa-pen update"></i>
-                </div>
-                <div class="delete-blog">
-                  <i onclick="deleteArticle(${element.id})" class="fas fa-trash-alt delete"></i>
-                </div>
-              </div>
-            </div>`;
+  if (i === 0) blogCardElement.innerHTML = html;
+  else blogCardElement.innerHTML += html;
 });
+if (getData.length === 0) {
+  blogCardElement.textContent = 'No blog created!';
+}
